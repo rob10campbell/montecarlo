@@ -33,7 +33,8 @@ sqrts = [(1/√n) for n in 1:1000];
 
 plot(x=sqrts, y=πvar,
     Geom.point,
-    Guide.xlabel("Number of random points (n)"),
-    Guide.ylabel("Variance of Approximation of π"),
+    Cartesian(xmin=0, xmax=0.1, ymin=0),
+    Guide.xlabel("1/√n"),
+    Guide.ylabel("Variance of approximation of π"),
     Guide.title("Variance vs. 1/√n")
     )
