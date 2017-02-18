@@ -1,15 +1,17 @@
 """
 plotapproxpi.jl
 
-Purpose: 
+Purpose:
     Using Monte Carlo methods, approximate π for a variety of populations of random numbers (n).
     Plot the approximation as a function of n to see if it converges to the true value of π.
-    Plot the variance in each approximation as a function of 1/√n to see if the variance also decreases as we approach π (from statistics, variance should follow 1/√n -- plot of variance vs. 1/√n will be a straight line) 
+    Plot the variance in each approximation as a function of 1/√n to see if the variance also decreases as we approach π (from statistics, variance should follow 1/√n -- plot of variance vs. 1/√n will be a straight line)
 
 """
 
 using Distributions
+
 using Gadfly
+
 include("approxpi.jl")
 
 ns1 = [n for n in 0:10:1000];
@@ -21,13 +23,17 @@ ns = append!(ns1,ns2);
 
 plot(x=ns,y=πs,
     Geom.point, yintercept=[π], Geom.hline,
-    Guide.xlabel("Number of random points (n)", Guide.ylabel("Value of π"), Guide.title("Approximating π")
+    Guide.xlabel("Number of random points (n)"),
+    Guide.ylabel("Value of π"),
+    Guide.title("Approximating π")
     )
 
-sqrtns = [√n for n in ns]
-πvar = [var(appropi(0,1,n)) for n in ns]
+sqrts = [(1/√n) for n in 1:1000];
+πvar = [var([appropi(0,1,n) for n in 1:N]) for N in 1:1000];
 
-plot(xs=sqrtns, y=πvar,
+plot(x=sqrts, y=πvar,
     Geom.point,
-    Guide.xlabel("Number of random points (n)"), Guide.ylabel("Variance of Approximation of π"), Guide.title("Variance vs. 1/√n")
+    Guide.xlabel("Number of random points (n)"),
+    Guide.ylabel("Variance of Approximation of π"),
+    Guide.title("Variance vs. 1/√n")
     )
