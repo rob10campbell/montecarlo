@@ -21,4 +21,13 @@ ns = append!(ns1,ns2);
 
 plot(x=ns,y=πs,
     Geom.point, yintercept=[π], Geom.hline,
-    Guide.xlabel("Number of random points (n)", Guide.ylabel("Value of π"), Guide.title("Approximating π"))
+    Guide.xlabel("Number of random points (n)", Guide.ylabel("Value of π"), Guide.title("Approximating π")
+    )
+
+sqrtns = [√n for n in ns]
+πvar = [var(appropi(0,1,n)) for n in ns]
+
+plot(xs=sqrtns, y=πvar,
+    Geom.point,
+    Guide.xlabel("Number of random points (n)"), Guide.ylabel("Variance of Approximation of π"), Guide.title("Variance vs. 1/√n")
+    )
