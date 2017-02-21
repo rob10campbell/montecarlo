@@ -6,8 +6,8 @@ Use Monte Carlo methods to integrate y=cos(x) over an interval (a,b)
 Graph the approximation of [∫cos(x)dx] over (a,b)
 Graph the variance of the approximation with respect to 1/√n
 """
-Using Distributions
-Using Gadfly
+using Distributions
+using Gadfly
 
 function cosint(a,b,n)
     under = 0
