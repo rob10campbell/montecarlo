@@ -11,7 +11,7 @@ using Fontconfig
 function cos2int(a,b,n)
     under = 0
     xmax = b - a
-    fmax = cos(xmax)*cos(xmax)
+    fmax = cos(0)*cos(0) #know that the max of cos(x)cos(y) is at cos(0)cos(0)
     dist = Uniform(a,b)
     for i in 1:n
         x = rand(dist)
