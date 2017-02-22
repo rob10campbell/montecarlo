@@ -35,3 +35,14 @@ pcos2 = plot(x=xs, y=cos2ys,
             Guide.title("Approximating I = ∫cosxcosy from 0 to 2π ")
         );
 draw(PNG("Cos2Approx.png", 150mm, 150mm), pcos2)
+
+sqrts = [(1/√n) for n in xs];
+cos2vars = [var([cos2int(0,1,n) for n in 1:N]) for N in xs];
+
+pcos2vars = plot(x=sqrts, y=cos2vars,
+                Geom.point,
+                Guide.xlabel("1/√n"),
+                Guide.ylabel("Variance of the Approximation of I"),
+                Guide.title("Variance in Approximation of I = ∫cos(x)cos(y) from 0 to 2π")
+            );
+draw(PNG("Cos2Var", 150mm, 150mm), pcos2vars)
