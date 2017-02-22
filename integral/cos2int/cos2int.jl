@@ -21,7 +21,7 @@ function cos2int(a,b,n)
             under += 1
         end
     end
-    p = (under / n) * xmax * fmax
+    p = (under / n) * (xmax * fmax) #proportion of points times total area
     return p
 end
 
