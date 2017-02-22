@@ -28,16 +28,16 @@ pπ = plot(x=ns,y=πs,
     Guide.ylabel("Value of π"),
     Guide.title("Approximating π")
     );
-draw(PNG("ApproxPi.png", 3inch, 3inch), pπ)
+draw(PNG("ApproxPi.png", 150mm, 150mm), pπ)
 
 sqrts = [(1/√n) for n in 1:1000];
 πvar = [var([approxpi(0,1,n) for n in 1:N]) for N in 1:1000];
 
 pvar = plot(x=sqrts, y=πvar,
     Geom.point,
-    Coord.Cartesian(xmin=0, xmax=0.1, ymin=0),
+    Coord.Cartesian(xmin=0, xmax=0.1, ymin=0, ymax=0.3),
     Guide.xlabel("1/√n"),
     Guide.ylabel("Variance of approximation of π"),
     Guide.title("Variance vs. 1/√n")
     );
-draw(PNG("VarApprox.png", 3inch, 3inch), pvar)
+draw(PNG("VarApprox.png", 150mm, 150mm), pvar)
