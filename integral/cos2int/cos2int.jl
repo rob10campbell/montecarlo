@@ -45,4 +45,4 @@ pcos2vars = plot(x=sqrts, y=cos2vars,
                 Guide.ylabel("Variance of the Approximation of I"),
                 Guide.title("Variance in Approximation of I = ∫cos(x)cos(y) from 0 to 2π")
             );
-draw(PNG("Cos2Var", 150mm, 150mm), pcos2vars)
+draw(PNG("Cos2Var.png", 150mm, 150mm), pcos2vars)
