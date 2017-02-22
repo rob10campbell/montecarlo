@@ -9,8 +9,9 @@ Purpose:
 =#
 
 using Distributions
-
 using Gadfly
+using Cairo
+using Fontconfig
 
 include("approxpi.jl")
 
@@ -38,5 +39,5 @@ pvar = plot(x=sqrts, y=πvar,
     Guide.xlabel("1/√n"),
     Guide.ylabel("Variance of approximation of π"),
     Guide.title("Variance vs. 1/√n")
-    )
+    );
 draw(PNG("VarApprox.png", 3inch, 3inch), pvar)
