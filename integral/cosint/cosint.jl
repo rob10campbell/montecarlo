@@ -37,7 +37,7 @@ pcos = plot(x=xs, y=approxcos,
     Guide.ylabel("Approximation of I"),
     Guide.title("Approximating I = [∫cos(x)dx] from 0 to 2π")
     );
-draw(PNG("ApproxIntCos.png", 150mm, 150mm), pcos)
+draw(PNG("CosIntApprox.png", 150mm, 150mm), pcos)
 
 sqrts = [(1/√x) for x in xs];
 vars = [var([cosint(0,2π,n) for n in 1:N]) for N in xs];
