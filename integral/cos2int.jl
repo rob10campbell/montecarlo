@@ -11,7 +11,7 @@ using Fontconfig
 function cos2int(a,b,n)
     under = 0
     xmax = b - a
-    fmax = cos(xmax)cos(xmax)
+    fmax = cos(xmax)*cos(xmax)
     dist = Uniform(a,b)
     for i in 1:n
         x = rand(dist)
@@ -37,7 +37,7 @@ pcos2 = plot(x=xs, y=cos2ys,
 draw(PNG("Cos2Approx.png", 150mm, 150mm), pcos2)
 
 sqrts = [(1/√n) for n in xs];
-cos2vars = [var([cos2int(0,1,n) for n in 1:N]) for N in xs];
+cos2vars = [var([cos2int(0,2π,n) for n in 1:N]) for N in xs];
 
 pcos2vars = plot(x=sqrts, y=cos2vars,
                 Geom.point,
