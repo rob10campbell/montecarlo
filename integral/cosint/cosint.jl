@@ -14,7 +14,7 @@ using Fontconfig
 function cosint(a,b,n)
     under = 0
     xmax = b - a
-    fmax = cos(xmax)
+    fmax = cos(0) #know that max of cos(x) is at cos(0)=1
     dist = Uniform(a,b)
     for i in 1:n
         x = rand(dist)
