@@ -20,7 +20,7 @@ function cosint(a,b,n)
         x = rand(dist)
         y = rand(dist)
 
-	    if fmax * y < cos(x)
+	    if (fmax * y) < cos(x)
             under += 1
 	    end
     end
