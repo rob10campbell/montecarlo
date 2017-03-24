@@ -14,17 +14,18 @@ using Fontconfig
 function cosint(a,b,n)
     under = 0
     xmax = b - a
-    fmax = cos(0) #know that max of cos(x) is at cos(0)=1
-    dist = Uniform(a,b)
+    fmax = 2 #know that max of cos(x) is 1 and the min of cos(x) is -1
+    #max - min = interval ; 1 - (-1) = 2
+    dist = Uniform(0,1)
     for i in 1:n
         x = rand(dist)
         y = rand(dist)
-
-	    if (fmax * y) < cos(x)
+        
+        if fmax * y < cos(x)
             under += 1
-	    end
+        end
     end
-    p = (under / n) * xmax * fmax 
+    p = (under / n)
     return p
 end
 
@@ -39,6 +40,7 @@ pcos = plot(x=xs, y=approxcos,
     );
 draw(PNG("CosIntApprox.png", 150mm, 150mm), pcos)
 
+#=
 sqrts = [(1/√x) for x in xs];
 vars = [var([cosint(0,2π,n) for n in 1:N]) for N in xs];
 
@@ -49,4 +51,4 @@ pcosvar = plot(x=sqrts, y=vars,
     Guide.ylabel("Variance of the approximation of I"),
     Guide.title("Variance of Approximations of I = [∫cos(x)dx] from 0 to 2π"),
     );
-draw(PNG("CosVar.png", 150mm, 150mm), pcosvar)
+draw(PNG("CosVar.png", 150mm, 150mm), pcosvar)=#
