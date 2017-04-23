@@ -15,30 +15,36 @@ using Fontconfig
 
 ns = [1,10]
 
-function monteint(n)
+function ys(n)
     dist = Uniform(0,1) #establish that we are using a Uniform distribution
-    sumy = 0
-    sumysquares = 0
+    ys = []
 
     for i in 1:n
         x = 2*π*rand(dist)
         y = (sin(x))^2
         
-        sumy += y
-        sumysquares += y^2
+        push!(ys, y)
     end
+end
 
-    meany = sumys / n #the approximation of the integral is the mean value of all n approximations
+sumy = sum(ys)
+
+sumysquares = 0
+
+for y in ys
+    sumysquares += y^2
+end
+
+meany = sumys / n #the approximation of the integral is the mean value of all n approximations
     
-    integral = meany
+integral = meany
 
-    meanysquare = sumysqares / n
+meanysquare = sumysqares / n
 
-    manualvariance = meanysquare - (meany)^2
+manualvariance = meanysquare - (meany)^2
 
-    error = √(manualvariance / n)
+error = √(manualvariance / n)
  
- end
 
 
 #=
