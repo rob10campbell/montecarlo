@@ -5,7 +5,7 @@ using Monte Carlo methods, approximate π for a variety of populations of random
 
 plot the approximation as a function of n to see if it convrges to the true value of π;
 
-plot the variance in each approximation as a function of 1/√n to see if the variance decreases as we expect (from statistics, variance should follow 1/√n -- the plot of the variance vs. 1/√n will be a straight line).
+plot the error in each approximation as a function of 1/√(2*n) to see if the error decreases as we expect (from statistics, variance should follow 1/√n and error should follow 1/\swrt (2*n) -- the plot of the variance vs. 1/√n will be a straight line; the plot of error vs. 1/(2*n) will be a straight line).
 
         =#
 
