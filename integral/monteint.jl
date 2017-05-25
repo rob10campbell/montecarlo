@@ -28,7 +28,7 @@ function approxcos(a, b, n)
     return meany
 end
 
-ns = collect(10^i for i in 0:5); #set of integer quantities of random numbers for Monte Carlo approximation
+ns = collect(10^i for i in 0:9); #set of integer quantities of random numbers for Monte Carlo approximation
 
 coss = [approxcos(0,1,n) for n in ns]; #approximations of the integral of cos(x) for a given quantity of random numbers
 
